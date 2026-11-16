@@ -31,15 +31,15 @@ pytest                            # 単体: pytest tests/test_xxx.py::test_name
 ## 実装上の決まり
 - SQLは必ずパラメータ化（プレースホルダ使用、文字列連結しない）。
 - Neonは無料枠で計算資源が停止するため、接続は使い回さず処理ごとに `with psycopg.connect(...)` で開く（`st.cache_resource` で接続を保持しない）。接続文字列は `st.secrets` で管理し、コミットしない。
-- クラウド上ではファイル保存してもユーザーに届かない。Excelは `BytesIO` でメモリ上に作り `st.download_button` で渡す。雛形Excelを1枚固定で `load_workbook` し、セルに値を書き込む（PDF出力はしない）。
+- クラウド上ではファイル保存してもユーザーに届かない。Excelは `BytesIO` でメモリ上に作り `st.download_button` で渡す。雛形Excelを1枚固定で `load_workbook` し、セルに値を書き込む。
 - Streamlitは操作ごとにスクリプト全体が再実行される。状態保持は `st.session_state`。
 - 公開アプリは誰でも書き込めるため、デモデータのリセット手段を用意する。
 - 余力があれば後半で: 在庫マイナス防止のCHECK制約、トランザクション、logging、エラーハンドリング、テスト。
 - Pylance(standard)に沿ったコーディング。
 
 ## 開発フェーズ
-- Phase 1: マスタ・入出庫登録・現在庫・不足一覧（ここで公開）
-- Phase 2: 発注書Excel出力（発注先ごと）
+- Phase 1: ①config+db接続 → ②db現在庫SQL+stock不足判定 → ③画面②在庫一覧＋不足一覧 → ④画面①入出庫登録 → ⑤デモデータリセット → 公開
+- Phase 2: orders発注数量計算（切り上げ）→ Excel作成（発注先ごと）→ 画面③発注書出力
 - Phase 3: logging・エラー処理・テスト・README（ER図はmermaidで可）。
 
 ## Git運用
