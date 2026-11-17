@@ -220,5 +220,5 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,windows,python
 
-# Streamlit secrets (接続文字列を含むためコミットしない)
+# Streamlit secrets
 .streamlit/secrets.toml
