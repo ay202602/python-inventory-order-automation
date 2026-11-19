@@ -1,5 +1,5 @@
 ## プロジェクト概要
-オフィス備品の在庫を管理し、発注点を下回った品目の発注書をExcelで自動作成するStreamlitアプリ（就職用ポートフォリオ）。方針は「小さく作り切る」。凝った機能より、エラー処理・読みやすさ・README の完成度を優先する。利用者は総務担当1人のみ（ユーザー管理・同時更新は考えない）。
+オフィス備品の在庫を管理し、発注点を下回った品目の発注書をExcelで自動作成するStreamlitアプリ。方針は「小さく作り切る」。凝った機能より、エラー処理・読みやすさ・README の完成度を優先する。利用者は総務担当1人のみ（ユーザー管理・同時更新は考えない）。
 
 ## 技術
 - Python / pandas / Streamlit / PostgreSQL（Neon）/ **psycopg 3**（`psycopg`。psycopg2 は使わない）/ openpyxl / pytest。
@@ -43,7 +43,7 @@ pytest                            # 単体: pytest tests/test_xxx.py::test_name
 - Phase 3: logging・エラー処理・テスト・README（ER図はmermaidで可）。
 
 ## Git運用
-GitHub Flow + Conventional Commits。`main` は常に動く状態に保ち、機能ごとにブランチを切ってPR経由でマージする。
+GitHub Flow + Conventional Commits。`main` は常に動く状態に保ち、機能ごとにブランチを切ってPR経由でマージする。Claude Codeが編集した変更はコミットメッセージの最後尾に`Co-Authored-By: Claude`の文言を足す。
 
 ## ドキュメント
 READMEの章立て: 概要 / 機能 / 出力例 / 実行方法 / 動作環境・使用技術 / 設計意図 / ディレクトリ構成。「設計意図」には画面とロジックを分けて発注数量計算を単体テストしやすくした点を書く。
