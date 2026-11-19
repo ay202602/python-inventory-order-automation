@@ -43,7 +43,8 @@ pytest                            # 単体: pytest tests/test_xxx.py::test_name
 - Phase 3: logging・エラー処理・テスト・README（ER図はmermaidで可）。
 
 ## Git運用
-GitHub Flow + Conventional Commits。`main` は常に動く状態に保ち、機能ごとにブランチを切ってPR経由でマージする。Claude Codeが編集した変更はコミットメッセージの最後尾に`Co-Authored-By: Claude`の文言を足す。
+- GitHub Flow + Conventional Commits。`main` は常に動く状態に保ち、機能ごとにブランチを切ってPR経由でマージする。Claude Codeが編集した変更はコミットメッセージの最後尾に`Co-Authored-By: Claude`の文言を足す。
+- コミットのスコープはモジュール名（`db` / `stock` / `orders` / `ui` / `config`）を付ける。
 
 ## ドキュメント
 READMEの章立て: 概要 / 機能 / 出力例 / 実行方法 / 動作環境・使用技術 / 設計意図 / ディレクトリ構成。「設計意図」には画面とロジックを分けて発注数量計算を単体テストしやすくした点を書く。
